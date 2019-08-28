@@ -8,6 +8,8 @@
 
 import UIKit
 
+var transferFrientId = ""
+var friendState = ""
 class ViewController: UIViewController {
 
     var qrcodeView: UIImageView!
@@ -19,7 +21,14 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         creatUI()
+        creatBarItem()
         loadMyInfo()
+    }
+
+    func creatBarItem() {
+       let item = UIBarButtonItem(title: "添加", style: UIBarButtonItem.Style.plain, target: self, action: #selector(addDevice))
+        item.tintColor = UIColor.black
+        self.navigationItem.rightBarButtonItem = item
     }
 
     func creatUI() {
@@ -28,6 +37,7 @@ class ViewController: UIViewController {
         friendView.title.text = "Friend"
         friendView.textFile.placeholder = "Please selected friend."
         friendView.row.image = UIImage(named: "row")
+        friendView.button.addTarget(self, action: #selector(showFriends), for: .touchUpInside)
         friendView.subTitle.text = "State"
         
         fileView = CommonView()
@@ -35,7 +45,6 @@ class ViewController: UIViewController {
         fileView.subTitle.text = "State"
         fileView.row.image = UIImage(named: "row")
         fileView.textFile.placeholder = "Please selected file."
-        
         transfile = CommonView()
         transfile.title.text = ""
         transfile.button.setTitle("TransferFile", for: .normal)
@@ -54,7 +63,7 @@ class ViewController: UIViewController {
         qrcodeView.backgroundColor = UIColor.red
         self.view.addSubview(qrcodeView)
         qrcodeView.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(88)
+            make.top.equalToSuperview().offset(100)
             make.centerX.equalToSuperview()
             make.height.width.equalTo(120)
         }
@@ -62,7 +71,7 @@ class ViewController: UIViewController {
             make.left.equalToSuperview().offset(12)
             make.right.equalToSuperview().offset(-12)
             make.top.equalTo(qrcodeView.snp_bottom).offset(24)
-            make.height.equalTo(120 * 3)
+            make.height.equalTo(100 * 3)
         }
     }
 
@@ -76,6 +85,29 @@ class ViewController: UIViewController {
             }
         }
     }
+
+    //    MARK: action
+    @objc func addDevice() {
+        let scanVC = ScanViewController();
+        self.navigationController?.show(scanVC, sender: nil)
+    }
+
+    @objc func showFriends() {
+        let listVC = ListViewController()
+        listVC.callBack { value in
+            transferFrientId = value.userId!
+            self.friendView.textFile.text = value.userId!
+            if value.status == CarrierConnectionStatus.Connected {
+                self.friendView.state.text = "Online"
+                self.friendView.state.textColor = UIColor.green
+            }else {
+                self.friendView.state.textColor = UIColor.lightGray
+                self.friendView.state.text = "Offline"
+            }
+        }
+        self.navigationController?.pushViewController(listVC, animated: true)
+    }
+
 
 }
 

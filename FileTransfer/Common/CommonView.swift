@@ -10,7 +10,6 @@ import UIKit
 
 class CommonView: UIView {
 
-
     var title: UILabel!
     var textFile: UITextField!
     var button: UIButton!
@@ -22,7 +21,7 @@ class CommonView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         creatUI()
-        self.backgroundColor = ColorHex("#76d4f8")
+        self.backgroundColor = ColorHex("#a192fc")
     }
 
     required init?(coder aDecoder: NSCoder) {

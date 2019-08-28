@@ -196,7 +196,6 @@ extension DeviceManager : CarrierDelegate
     
     public func didReceiveFriendsList(_ carrier: Carrier,
                                       _ friends: [CarrierFriendInfo]) {
-
     }
     
     public func friendInfoDidChange(_ carrier: Carrier,
@@ -209,6 +208,14 @@ extension DeviceManager : CarrierDelegate
     public func friendConnectionDidChange(_ carrier: Carrier,
                                           _ friendId: String,
                                           _ newStatus: CarrierConnectionStatus) {
+        if friendId == transferFrientId {
+            if newStatus == .Connected {
+                friendState = "Online"
+            }
+            else {
+                friendState = "Offline"
+            }
+        }
     }
     
     public func didReceiveFriendRequest(_ carrier: Carrier,

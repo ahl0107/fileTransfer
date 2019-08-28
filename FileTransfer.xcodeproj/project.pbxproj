@@ -22,6 +22,9 @@
 		11E0711723164C9400C878BC /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 11E070F923164C9200C878BC /* MBProgressHUD.m */; };
 		11E0711823164C9400C878BC /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 11E070FA23164C9200C878BC /* LICENSE */; };
 		11E0711923164C9400C878BC /* README.mdown in Resources */ = {isa = PBXBuildFile; fileRef = 11E070FC23164C9200C878BC /* README.mdown */; };
+		11E0712F2316703300C878BC /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11E0712D2316703200C878BC /* ListViewController.swift */; };
+		11E071302316703300C878BC /* ListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11E0712E2316703300C878BC /* ListCell.swift */; };
+		11E071342316735500C878BC /* Hud.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11E071332316735500C878BC /* Hud.swift */; };
 		D9AB10AD65E43AD9334060D1 /* Pods_FileTransfer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38E6FD64BB5EC056DAF34FD7 /* Pods_FileTransfer.framework */; };
 /* End PBXBuildFile section */
 
@@ -45,6 +48,10 @@
 		11E070FA23164C9200C878BC /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		11E070FB23164C9200C878BC /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		11E070FC23164C9200C878BC /* README.mdown */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.mdown; sourceTree = "<group>"; };
+		11E0712C2316692B00C878BC /* FileTransfer-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "FileTransfer-Bridging-Header.h"; sourceTree = "<group>"; };
+		11E0712D2316703200C878BC /* ListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
+		11E0712E2316703300C878BC /* ListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListCell.swift; sourceTree = "<group>"; };
+		11E071332316735500C878BC /* Hud.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Hud.swift; sourceTree = "<group>"; };
 		38E6FD64BB5EC056DAF34FD7 /* Pods_FileTransfer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FileTransfer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D03CFF7D2C30FCC984B771D /* Pods-FileTransfer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FileTransfer.release.xcconfig"; path = "Target Support Files/Pods-FileTransfer/Pods-FileTransfer.release.xcconfig"; sourceTree = "<group>"; };
 		90F2C3BA0EEB0DA2BA2CEE4C /* Pods-FileTransfer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FileTransfer.debug.xcconfig"; path = "Target Support Files/Pods-FileTransfer/Pods-FileTransfer.debug.xcconfig"; sourceTree = "<group>"; };
@@ -88,6 +95,7 @@
 				11E0712B2316537C00C878BC /* Core */,
 				11E070C8231388D900C878BC /* AppDelegate.swift */,
 				11E070EA2316222B00C878BC /* File.swift */,
+				11E0712C2316692B00C878BC /* FileTransfer-Bridging-Header.h */,
 				11E070CC231388D900C878BC /* Main.storyboard */,
 				11E070CF231388DB00C878BC /* Assets.xcassets */,
 				11E070D1231388DB00C878BC /* LaunchScreen.storyboard */,
@@ -102,6 +110,7 @@
 				11E070DA23138A8300C878BC /* CommonView.swift */,
 				11E070EC2316402B00C878BC /* Counst.swift */,
 				11E070EF2316409900C878BC /* DeviceManager.swift */,
+				11E071332316735500C878BC /* Hud.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -149,6 +158,8 @@
 			isa = PBXGroup;
 			children = (
 				11E070CA231388D900C878BC /* ViewController.swift */,
+				11E0712E2316703300C878BC /* ListCell.swift */,
+				11E0712D2316703200C878BC /* ListViewController.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -288,7 +299,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				11E0712F2316703300C878BC /* ListViewController.swift in Sources */,
+				11E071342316735500C878BC /* Hud.swift in Sources */,
 				11E0711423164C9400C878BC /* NetworkReachabilityManager.swift in Sources */,
+				11E071302316703300C878BC /* ListCell.swift in Sources */,
 				11E070CB231388D900C878BC /* ViewController.swift in Sources */,
 				11E070F02316409900C878BC /* DeviceManager.swift in Sources */,
 				11E0711623164C9400C878BC /* ScanViewController.m in Sources */,
@@ -453,6 +467,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = elastos.FileTransfer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "FileTransfer/FileTransfer-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -473,6 +488,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = elastos.FileTransfer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "FileTransfer/FileTransfer-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
