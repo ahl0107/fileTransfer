@@ -85,10 +85,8 @@
 			children = (
 				11E070F123164C9200C878BC /* 3rd */,
 				11E070EE2316409900C878BC /* Common */,
-				11E070EC2316402B00C878BC /* Counst.swift */,
+				11E0712B2316537C00C878BC /* Core */,
 				11E070C8231388D900C878BC /* AppDelegate.swift */,
-				11E070CA231388D900C878BC /* ViewController.swift */,
-				11E070DA23138A8300C878BC /* CommonView.swift */,
 				11E070EA2316222B00C878BC /* File.swift */,
 				11E070CC231388D900C878BC /* Main.storyboard */,
 				11E070CF231388DB00C878BC /* Assets.xcassets */,
@@ -101,6 +99,8 @@
 		11E070EE2316409900C878BC /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				11E070DA23138A8300C878BC /* CommonView.swift */,
+				11E070EC2316402B00C878BC /* Counst.swift */,
 				11E070EF2316409900C878BC /* DeviceManager.swift */,
 			);
 			path = Common;
@@ -143,6 +143,14 @@
 				11E070FC23164C9200C878BC /* README.mdown */,
 			);
 			path = MBProgressHUD;
+			sourceTree = "<group>";
+		};
+		11E0712B2316537C00C878BC /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				11E070CA231388D900C878BC /* ViewController.swift */,
+			);
+			path = Core;
 			sourceTree = "<group>";
 		};
 		99987C7FDA8FDC8F2938566E /* Pods */ = {

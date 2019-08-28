@@ -30,7 +30,8 @@ class CommonView: UIView {
     }
 
     func creatUI() {
-
+        self.layer.cornerRadius = 5.0
+        self.clipsToBounds = true
         title = UILabel()
         self.addSubview(title)
 
@@ -65,9 +66,9 @@ class CommonView: UIView {
 
         row.snp.makeConstraints { make in
             make.right.equalToSuperview().offset(-12)
-            make.top.equalTo(textFile)
-            make.height.equalTo(textFile)
-            make.width.equalTo(22)
+            make.centerY.equalTo(textFile)
+            make.height.equalTo(14)
+            make.width.equalTo(14)
         }
 
         subTitle.snp.makeConstraints { make in

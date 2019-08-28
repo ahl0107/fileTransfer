@@ -27,12 +27,15 @@ class ViewController: UIViewController {
         friendView = CommonView()
         friendView.title.text = "Friend"
         friendView.textFile.placeholder = "Please selected friend."
+        friendView.row.image = UIImage(named: "row")
         friendView.subTitle.text = "State"
         
         fileView = CommonView()
         fileView.title.text = "File"
         fileView.subTitle.text = "State"
+        fileView.row.image = UIImage(named: "row")
         fileView.textFile.placeholder = "Please selected file."
+        
         transfile = CommonView()
         transfile.title.text = ""
         transfile.button.setTitle("TransferFile", for: .normal)
@@ -45,8 +48,6 @@ class ViewController: UIViewController {
         stackView.alignment = UIStackView.Alignment.fill
         stackView.distribution = UIStackView.Distribution.fillEqually
         stackView.spacing = 12
-        stackView.layer.cornerRadius = 5.0
-        stackView.clipsToBounds = true
         self.view.addSubview(stackView)
 
         qrcodeView = UIImageView()
