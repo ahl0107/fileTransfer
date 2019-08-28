@@ -11,3 +11,4 @@ import Foundation
 @_exported import SnapKit
 @_exported import FTLinearActivityIndicator
 @_exported import QRCode
+@_exported import ElastosCarrierSDK

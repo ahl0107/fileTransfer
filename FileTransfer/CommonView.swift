@@ -22,7 +22,7 @@ class CommonView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         creatUI()
-        self.backgroundColor = UIColor.blue
+        self.backgroundColor = ColorHex("#76d4f8")
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -86,7 +86,7 @@ class CommonView: UIView {
 
         button.snp.makeConstraints { make in
             make.top.equalTo(textFile)
-            make.left.equalTo(textFile)
+            make.left.equalToSuperview().offset(12)
             make.right.equalToSuperview().offset(-12)
             make.height.equalTo(textFile)
         }
