@@ -15,7 +15,6 @@ class Hud: UIView {
         hud!.mode = .text
         hud!.label.text = title
         hud!.hide(animated: true, afterDelay: after)
-
     }
 
 }

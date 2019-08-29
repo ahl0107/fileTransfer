@@ -23,6 +23,7 @@ class ViewController: UIViewController {
         creatUI()
         creatBarItem()
         loadMyInfo()
+        NotificationCenter.default.addObserver(self, selector: #selector(handleFriendStatusChanged(notif:)), name: .friendStatusChanged, object: nil)
     }
 
     func creatBarItem() {
@@ -86,6 +87,16 @@ class ViewController: UIViewController {
         }
     }
 
+    func refresh(_ status: CarrierConnectionStatus) {
+        if status == CarrierConnectionStatus.Connected {
+            self.friendView.state.text = "Online"
+            self.friendView.state.textColor = UIColor.green
+        }else {
+            self.friendView.state.textColor = UIColor.lightGray
+            self.friendView.state.text = "Offline"
+        }
+    }
+
     //    MARK: action
     @objc func addDevice() {
         let scanVC = ScanViewController();
@@ -97,17 +108,17 @@ class ViewController: UIViewController {
         listVC.callBack { value in
             transferFrientId = value.userId!
             self.friendView.textFile.text = value.userId!
-            if value.status == CarrierConnectionStatus.Connected {
-                self.friendView.state.text = "Online"
-                self.friendView.state.textColor = UIColor.green
-            }else {
-                self.friendView.state.textColor = UIColor.lightGray
-                self.friendView.state.text = "Offline"
-            }
+            self.refresh(value.status)
         }
         self.navigationController?.pushViewController(listVC, animated: true)
     }
 
-
+    //MARK: - NSNotification -
+    @objc func handleFriendStatusChanged(notif: NSNotification) {
+        let friendState = notif.userInfo!["friendState"] as! CarrierConnectionStatus
+        DispatchQueue.main.sync {
+            self.refresh(friendState)
+        }
+    }
 }
 

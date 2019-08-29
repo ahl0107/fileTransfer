@@ -174,7 +174,6 @@ extension DeviceManager : CarrierDelegate
         self.status = newStatus
         if status == .Disconnected {
         }
-        
         NotificationCenter.default.post(name: .deviceStatusChanged, object: nil)
     }
     
@@ -209,12 +208,7 @@ extension DeviceManager : CarrierDelegate
                                           _ friendId: String,
                                           _ newStatus: CarrierConnectionStatus) {
         if friendId == transferFrientId {
-            if newStatus == .Connected {
-                friendState = "Online"
-            }
-            else {
-                friendState = "Offline"
-            }
+          NotificationCenter.default.post(name: .friendStatusChanged, object: self, userInfo: ["friendState":newStatus])
         }
     }
     
